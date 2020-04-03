@@ -1,4 +1,7 @@
 .nav {
     grid-area: nav;
     background-color: coral;
+    text-align: center;
+    padding: 10px;
 }
+
