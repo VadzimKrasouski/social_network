@@ -1,13 +1,19 @@
-
 .header {
     grid-area: header;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    background-color: burlywood;
 }
 
-.header img {
-    width: 50px;
+.container {
+    display: grid;
+    align-items: center;
+    padding: 0 15px;
+    background-color: white;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 20px 0 rgba(44, 101, 144, 0.1);
+    height: 100%;
+}
+
+.container img {
+    width: 60px;
+
 }
