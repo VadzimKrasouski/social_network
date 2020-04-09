@@ -1,0 +1,23 @@
+.profileInfo {
+    grid-area: profileInfo;
+    background-color: white;
+    -webkit-border-radius: 75px 5px 5px 5px;
+    border: none;
+    box-shadow: 0 0 20px 0 rgba(44, 101, 144, 0.1);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 5px;
+}
+
+.avatar img{
+    height: 150px;
+    -webkit-border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, .1);
+}
+
+.descriptions {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+}

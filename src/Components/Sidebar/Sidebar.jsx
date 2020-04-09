@@ -1,8 +1,9 @@
 import React from 'react';
-import styles from './Navbar.module.css'
+import styles from './Sidebar.module.css'
 
-const Navbar = () => {
+const Sidebar = () => {
     return (
+        <div className={styles.container}>
             <nav className={styles.nav}>
                 <div><a href="#">Profile</a></div>
                 <div><a href="#">Messages</a></div>
@@ -10,7 +11,8 @@ const Navbar = () => {
                 <div><a href="#">Music</a></div>
                 <div><a href="#">Settings</a></div>
             </nav>
+        </div>
     );
 };
 
-export default Navbar;
+export default Sidebar;

@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './App.module.css';
 import Header from "./Components/Header/Header";
-import Navbar from "./Components/Navbar/Navbar";
-import Profile from "./Components/Profile/Profile";
+import Sidebar from "./Components/Sidebar/Sidebar";
+import Main from "./Components/Main/Main";
 import Footer from "./Components/Footer/Footer";
 
 const App = () => {
@@ -10,8 +10,8 @@ const App = () => {
         <div className={styles.appWrapper}>
             <div className={styles.container}>
                 <Header/>
-                <Navbar/>
-                <Profile/>
+                <Sidebar/>
+                <Main/>
                 <Footer/>
             </div>
         </div>
