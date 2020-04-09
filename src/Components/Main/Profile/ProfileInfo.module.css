@@ -10,14 +10,21 @@
     padding: 5px;
 }
 
-.avatar img{
+.profileInfo img {
     height: 150px;
-    -webkit-border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, .1);
 }
 
 .descriptions {
     padding: 0 20px;
     display: flex;
     flex-direction: column;
+}
+
+.descriptions a {
+    color: #3f414d;
+    text-decoration: none;
+    transition: all 0.5s ease-out 0s;
+}
+.descriptions a:hover {
+    color: #50b5ff;
 }
