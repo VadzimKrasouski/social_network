@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './CreatePost.module.css'
 import Avatar from "../../../Avatar/Avatar";
 import TextArea from "./TextArea";
+import SentButton from "./SentButton";
 
 const CreatePost = () => {
     return (
@@ -15,9 +16,7 @@ const CreatePost = () => {
                 </div>
                 <div className={styles.input}>
                     <TextArea/>
-                    <div className={styles.button}>
-                        <button>Sent</button>
-                    </div>
+                    <SentButton/>
                 </div>
             </div>
         </div>
