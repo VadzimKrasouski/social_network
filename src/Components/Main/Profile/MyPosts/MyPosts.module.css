@@ -1,0 +1,14 @@
+.myPosts {
+    grid-area: myPosts;
+    background-color: white;
+    border: none;
+    box-shadow: 0 0 20px 0 rgba(44, 101, 144, 0.1);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post {
+
+}
+

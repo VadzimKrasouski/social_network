@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ProfileInfo.module.css'
-import Avatar from "../Avatar";
+import Avatar from "../../Avatar/Avatar";
 
 const ProfileInfo = () => {
     return (

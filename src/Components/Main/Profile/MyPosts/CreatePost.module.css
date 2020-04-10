@@ -1,0 +1,54 @@
+.createPost {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    padding: 0 20px;
+}
+
+.body {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border-bottom: 1px solid #f1f1f1;
+    border-top: 1px solid #f1f1f1;
+}
+
+.avatar {
+    width: 100px;
+}
+
+.avatar img {
+    height: 50px;
+}
+
+.input {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    width: 100%;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    width: 100px;
+}
+
+.button button {
+    background-color: white;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color: #50b5ff;
+    transition: all 0.5s ease-out 0s;
+}
+
+.button button:hover {
+    color: #3f414d;
+    border: none;
+    outline: none;
+}
+
+

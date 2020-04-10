@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Cover.module.css'
-import wallpaper from './../../../img/8788.png'
+import wallpaper from './8788.png'
 
 const Cover = () => {
     return (

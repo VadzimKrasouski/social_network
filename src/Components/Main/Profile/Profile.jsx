@@ -1,15 +1,15 @@
 import React from 'react';
 import styles from './Profile.module.css'
-import Cover from "./Cover";
+import Cover from "./Cover/Cover";
 import ProfileInfo from "./ProfileInfo";
-import CreatePost from "./CreatePost";
+import MyPosts from "./MyPosts/MyPosts";
 
 const Profile = () => {
     return (
         <div className={styles.profile}>
             <Cover/>
             <ProfileInfo/>
-            <CreatePost/>
+            <MyPosts/>
         </div>
     );
 };
