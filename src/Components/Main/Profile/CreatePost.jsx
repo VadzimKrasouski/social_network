@@ -9,14 +9,17 @@ const CreatePost = () => {
                 <h3>Create Post</h3>
             </div>
 
-                <div className={styles.body}>
-                    <Avatar/>
-                    <input placeholder={'Write something here...'} />
+            <div className={styles.body}>
+                <Avatar/>
+                <div className={styles.newPost}>
+                    <textarea placeholder={'Write something here...'} rows={'1'}></textarea>
+                    <button>Sent</button>
                 </div>
-
-                <div>post1</div>
-                <div>post2</div>
             </div>
+
+            <div>post1</div>
+            <div>post2</div>
+        </div>
     );
 };
 
