@@ -1,0 +1,8 @@
+.likes {
+    color: #50b5ff;
+    transition: all 0.5s ease-out 0s;
+}
+
+.likes:hover {
+    color: #3f414d;
+}
