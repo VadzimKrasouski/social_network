@@ -1,0 +1,26 @@
+.dialogs {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    grid-column-gap: 10px;
+}
+
+.dialogItems {
+    background-color: white;
+    border: none;
+    box-shadow: 0 0 20px 0 rgba(44, 101, 144, 0.1);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.messages {
+    background-color: white;
+    border: none;
+    box-shadow: 0 0 20px 0 rgba(44, 101, 144, 0.1);
+    -webkit-border-radius: 5px 5px 5px 5px;
+}
+
