@@ -2,7 +2,7 @@
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: 2fr 10fr;
+    grid-template-columns: 1fr 3fr;
     grid-column-gap: 10px;
 }
 
@@ -17,7 +17,7 @@
     align-items: center;
 }
 
-.messages {
+.messageItems {
     background-color: white;
     border: none;
     box-shadow: 0 0 20px 0 rgba(44, 101, 144, 0.1);

@@ -1,4 +1,4 @@
 .main {
     grid-area: main;
-    width: 1000px;
+    min-width: 500px;
 }
