@@ -1,0 +1,36 @@
+.dialogItem {
+    display: flex;
+    width: 90%;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.avatar {
+    padding: 5px;
+}
+
+.dialog {
+    padding: 5px;
+    width: 100px;
+}
+
+.avatar img {
+    height: 50px;
+}
+
+.dialog a {
+    font-size: 14px;
+    color: #3f414d;
+    text-decoration: none;
+    transition: all 0.5s ease-out 0s;
+}
+
+.dialog a.active{
+    color: #50b5ff;
+}
+
+.dialog a:hover {
+    color: #50b5ff;
+}
+
