@@ -14,7 +14,7 @@
     height: 50px;
 }
 
-.message {
+.postText {
     display: flex;
     flex-direction: column;
     width: 100%;

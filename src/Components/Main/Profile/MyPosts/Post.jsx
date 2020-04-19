@@ -9,8 +9,8 @@ const Post = (props) => {
             <div className={styles.avatar}>
                 <Avatar/>
             </div>
-            <div className={styles.message}>
-                {props.message}
+            <div className={styles.postText}>
+                {props.post}
                <Likes likesCount = {props.likesCount}/>
             </div>
         </div>

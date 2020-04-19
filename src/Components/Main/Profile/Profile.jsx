@@ -4,12 +4,12 @@ import Cover from "./Cover/Cover";
 import ProfileInfo from "./ProfileInfo";
 import MyPosts from "./MyPosts/MyPosts";
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div className={styles.profile}>
             <Cover/>
             <ProfileInfo/>
-            <MyPosts/>
+            <MyPosts posts={props.posts} />
         </div>
     );
 };
