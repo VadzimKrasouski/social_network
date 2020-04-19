@@ -20,3 +20,7 @@ const Main = (props) => {
 };
 
 export default Main;
+
+Main.propTypes = {
+
+}

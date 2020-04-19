@@ -4,6 +4,7 @@ import Header from "./Components/Header/Header";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Main from "./Components/Main/Main";
 import Footer from "./Components/Footer/Footer";
+import PropTypes from 'prop-types';
 
 const App = (props) => {
     return (
@@ -19,3 +20,7 @@ const App = (props) => {
 };
 
 export default App;
+
+App.propTypes = {
+    state: PropTypes.object
+};
