@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './Main.module.css'
-import Profile from "./Profile/Profile";
-import Dialogs from "./Dialogs/Dialogs";
-import {Route} from "react-router-dom";
-import News from "./News/News";
-import Music from "./Music/Music";
-import Settings from "./Settings/Settings";
+import Profile from './Profile/Profile';
+import Dialogs from './Dialogs/Dialogs';
+import {Route} from 'react-router-dom';
+import News from './News/News';
+import Music from './Music/Music';
+import Settings from './Settings/Settings';
+import PropTypes from 'prop-types';
 
 const Main = (props) => {
     return (
@@ -22,5 +23,5 @@ const Main = (props) => {
 export default Main;
 
 Main.propTypes = {
-
+    state: PropTypes.object
 }

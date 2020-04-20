@@ -1,0 +1,31 @@
+.nav {
+
+}
+
+.nav a {
+    font-size: 20px;
+    color: #3f414d;
+    text-decoration: none;
+    transition: all 0.5s ease-out 0s;
+}
+
+.nav a.active{
+    color: #50b5ff;
+}
+
+.nav a:hover {
+    color: #50b5ff;
+}
+
+.friends {
+    display: flex;
+    flex-direction: column;
+}
+.friend {
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar img {
+    height: 50px;
+}
