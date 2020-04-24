@@ -1,7 +1,7 @@
 .appWrapper {
-    min-height: 100vh;
-    display: grid;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -16,7 +16,9 @@
 
 .container {
     display: grid;
-    max-width: 1000px;
+    width: 900px;
+    min-height: 100vh;
+
     grid-template-areas:
             "header header"
             "nav main"
