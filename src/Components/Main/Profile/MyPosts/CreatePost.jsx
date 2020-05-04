@@ -4,7 +4,8 @@ import Avatar from "../../../Avatar/Avatar";
 import TextArea from "./TextArea";
 import SentButton from "./SentButton";
 
-const CreatePost = () => {
+const CreatePost = (props) => {
+
     return (
         <div className={styles.createPost}>
             <div className={styles.header}>
@@ -15,8 +16,10 @@ const CreatePost = () => {
                     <Avatar/>
                 </div>
                 <div className={styles.input}>
-                    <TextArea/>
-                    <SentButton/>
+                    <TextArea
+                        newPostText={props.newPostText}
+                        updatePostText={props.updatePostText}/>
+                    <SentButton addPost={props.addPost}/>
                 </div>
             </div>
         </div>

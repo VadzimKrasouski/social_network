@@ -11,8 +11,11 @@ import PropTypes from 'prop-types';
 const Main = (props) => {
     return (
         <div className={styles.main}>
-            <Route path='/profile' render={ () => <Profile state={props.state.profilePage} />}/>
-            <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage} />}/>
+            <Route path='/profile' render={() =>
+                <Profile profilePage={props.state.profilePage}
+                         addPost={props.addPost}
+                         updatePostText={props.updatePostText}/>}/>
+            <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage}/>}/>
             <Route path='/news' render={() => <News/>}/>
             <Route path='/music' render={() => <Music/>}/>
             <Route path='/settings' render={() => <Settings/>}/>

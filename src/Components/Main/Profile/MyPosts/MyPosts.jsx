@@ -5,11 +5,13 @@ import Post from "./Post";
 
 const MyPosts = (props) => {
 
-    let post = props.posts.map( m => <Post post = {m.post} likesCount = {m.likesCount} />);
+    let post = props.profilePost.posts.map(p => <Post post={p.post} likesCount={p.likesCount}/>);
 
     return (
         <div className={styles.myPosts}>
-            <CreatePost/>
+            <CreatePost updatePostText={props.updatePostText}
+                        addPost={props.addPost}
+                        newPostText={props.profilePost.newPostText}/>
             {post}
         </div>
     );

@@ -9,7 +9,9 @@ const Profile = (props) => {
         <div className={styles.profile}>
             <Cover/>
             <ProfileInfo/>
-            <MyPosts posts={props.state.posts} />
+            <MyPosts profilePost={props.profilePage}
+                     addPost={props.addPost}
+                     updatePostText={props.updatePostText}/>
         </div>
     );
 };

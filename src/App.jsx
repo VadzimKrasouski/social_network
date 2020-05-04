@@ -12,7 +12,7 @@ const App = (props) => {
             <div className={styles.container}>
                 <Header/>
                 <Sidebar/>
-                <Main state={props.state}/>
+                <Main state={props.state} addPost={props.addPost} updatePostText={props.updatePostText}/>
                 <Footer/>
             </div>
         </div>
