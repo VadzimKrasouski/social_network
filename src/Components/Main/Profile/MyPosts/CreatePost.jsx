@@ -18,8 +18,8 @@ const CreatePost = (props) => {
                 <div className={styles.input}>
                     <TextArea
                         newPostText={props.newPostText}
-                        updatePostText={props.updatePostText}/>
-                    <SentButton addPost={props.addPost}/>
+                        dispatch={props.dispatch}/>
+                    <SentButton dispatch={props.dispatch}/>
                 </div>
             </div>
         </div>

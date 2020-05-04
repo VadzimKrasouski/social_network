@@ -9,8 +9,7 @@ const MyPosts = (props) => {
 
     return (
         <div className={styles.myPosts}>
-            <CreatePost updatePostText={props.updatePostText}
-                        addPost={props.addPost}
+            <CreatePost dispatch={props.dispatch}
                         newPostText={props.profilePost.newPostText}/>
             {post}
         </div>

@@ -7,7 +7,7 @@ const TextArea = (props) => {
 
     let onTextChange = () => {
         let postText = newPostElement.current.value;
-        props.updatePostText(postText);
+        props.dispatch({type: 'UPDATE-POST-TEXT', postText});
     }
 
 

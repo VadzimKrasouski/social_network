@@ -4,7 +4,7 @@ import styles from './SentButton.module.css'
 const SentButton = (props) => {
 
     let onAddPostClick = () => {
-        props.addPost();
+        props.dispatch({type: 'ADD-NEW-POST'});
     };
 
     return (
