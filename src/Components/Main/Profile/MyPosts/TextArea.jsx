@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './TextArea.module.css'
+import {updatePostActionCreator} from "../../../../Redux/state";
 
 const TextArea = (props) => {
 
@@ -7,9 +8,8 @@ const TextArea = (props) => {
 
     let onTextChange = () => {
         let postText = newPostElement.current.value;
-        props.dispatch({type: 'UPDATE-POST-TEXT', postText});
+        props.dispatch(updatePostActionCreator(postText));
     }
-
 
     return (
         <div className={styles.textArea}>
@@ -21,6 +21,5 @@ const TextArea = (props) => {
         </div>
     );
 };
-
 
 export default TextArea;

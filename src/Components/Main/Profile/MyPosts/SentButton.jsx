@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './SentButton.module.css'
+import {addPostActionCreator} from "../../../../Redux/state";
 
 const SentButton = (props) => {
 
     let onAddPostClick = () => {
-        props.dispatch({type: 'ADD-NEW-POST'});
+        props.dispatch(addPostActionCreator());
     };
 
     return (
