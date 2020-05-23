@@ -1,5 +1,5 @@
 import * as serviceWorker from './serviceWorker';
-import store from "./Redux/state";
+import store from "./Redux/reduxStore";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -7,11 +7,12 @@ import App from './App';
 import {BrowserRouter} from "react-router-dom";
 
 
-let rerenderEntireTree = () => {
+let rerenderEntireTree = (state) => {
+
     ReactDOM.render(
         <BrowserRouter>
             <React.StrictMode>
-                <App state={store.getState()} dispatch={store.dispatch.bind(store)}/>
+                <App state={state} dispatch={store.dispatch.bind(store)}/>
             </React.StrictMode>
         </BrowserRouter>,
         document.getElementById('root')
@@ -20,7 +21,10 @@ let rerenderEntireTree = () => {
 
 rerenderEntireTree(store.getState());
 
-store.subscriber(rerenderEntireTree);
+store.subscribe(() => {
+    let state = store.getState();
+    rerenderEntireTree(state)
+});
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

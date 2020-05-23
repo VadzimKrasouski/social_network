@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './TextArea.module.css'
-import {updatePostActionCreator} from "../../../../Redux/state";
+import {updatePostActionCreator} from "../../../../Redux/profileReducer";
 
 const TextArea = (props) => {
 

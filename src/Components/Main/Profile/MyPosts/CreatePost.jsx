@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './CreatePost.module.css'
 import Avatar from "../../../Avatar/Avatar";
 import TextArea from "./TextArea";
-import SentButton from "./SentButton";
+import SendButton from "./SendButton";
 
 const CreatePost = (props) => {
 
@@ -19,7 +19,7 @@ const CreatePost = (props) => {
                     <TextArea
                         newPostText={props.newPostText}
                         dispatch={props.dispatch}/>
-                    <SentButton dispatch={props.dispatch}/>
+                    <SendButton dispatch={props.dispatch}/>
                 </div>
             </div>
         </div>
