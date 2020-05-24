@@ -18,10 +18,22 @@
 }
 
 .messageItems {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     background-color: white;
     border: none;
     box-shadow: 0 0 20px 0 rgba(44, 101, 144, 0.1);
     -webkit-border-radius: 5px 5px 5px 5px;
-    padding: 10px;
+    padding: 20px;
+}
+
+.input {
+    display: flex;
+}
+
+.input textarea {
+    min-width: 100%;
+    border: 1px solid grey;
 }
 

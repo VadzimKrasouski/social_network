@@ -11,8 +11,8 @@ const TextArea = (props) => {
     return (
         <div className={styles.textArea}>
             <textarea onChange={onTextChange}
-                      placeholder={'Write something here...'}
-                      rows={'1'}
+                      placeholder={props.placeholder}
+                      rows={props.rows}
                       value={props.newInputText}/>
         </div>
     );

@@ -6,6 +6,7 @@
 }
 
 .textArea textarea {
+    box-sizing: border-box;
     min-width: 100%;
     width: auto;
     resize: none;

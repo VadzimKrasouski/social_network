@@ -9,7 +9,7 @@ const ProfileInfo = () => {
             <div className={styles.descriptions}>
                 <h3>Vadzim Krasouski</h3>
                 <span>Date of Birth: 5 august</span>
-                <span>City: 5 august</span>
+                <span>City: Vitebsk</span>
                 <span>Education: PSU'11</span>
                 <span>Web Site: <a href="https://github.com/VadzimKrasouski">
                     github.com/VadzimKrasouski</a></span>

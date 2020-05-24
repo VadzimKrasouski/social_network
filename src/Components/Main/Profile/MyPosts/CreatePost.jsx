@@ -16,7 +16,9 @@ const CreatePost = (props) => {
                 <div className={styles.input}>
                     <TextArea
                         newInputText={props.newInputText}
-                        updateInputText={props.updateInputText}/>
+                        updateInputText={props.updateInputText}
+                        placeholder={'Write something here...'}
+                        rows={'1'}/>
                     <SendButton addPost={props.addPost}/>
                 </div>
             </div>

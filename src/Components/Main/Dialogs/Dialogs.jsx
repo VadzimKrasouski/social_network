@@ -4,6 +4,7 @@ import DialogItem from "./DialogItem";
 import MessageItem from "./MessageItem";
 import {sendMessageCreator, updateNewMessageTextCreator} from "../../../Redux/dialogsReducer";
 import SendButton from "../Profile/MyPosts/SendButton";
+import TextArea from "../Profile/MyPosts/TextArea";
 
 const Dialogs = (props) => {
     let dialogItems = props.state.dialogs.map(d =>
@@ -18,9 +19,8 @@ const Dialogs = (props) => {
         props.dispatch(sendMessageCreator())
     }
 
-    let onNewMessageChange = (e) => {
-        let messageText = e.target.value
-        props.dispatch(updateNewMessageTextCreator(messageText))
+    let onNewMessageChange = (text) => {
+        props.dispatch(updateNewMessageTextCreator(text))
     }
 
     return (
@@ -29,13 +29,13 @@ const Dialogs = (props) => {
                 {dialogItems}
             </div>
             <div className={styles.messageItems}>
-                <div>{messageItems}</div>
-                <div>
-                    <textarea value={newMessageText} onChange={onNewMessageChange} placeholder={'New message text...'}/>
-                    {/*<button onClick={onSendMessageClick}>Send</button>*/}
+                {messageItems}
+                <div className={styles.input}>
+                    <TextArea newInputText={newMessageText}
+                              updateInputText={onNewMessageChange}
+                              placeholder={'New message text...'}/>
                     <SendButton addPost={onSendMessageClick}/>
                 </div>
-
             </div>
         </div>
     )
