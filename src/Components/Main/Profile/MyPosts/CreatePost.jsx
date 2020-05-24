@@ -8,18 +8,16 @@ const CreatePost = (props) => {
 
     return (
         <div className={styles.createPost}>
-            <div className={styles.header}>
-                <h3>Create Post</h3>
-            </div>
+            <h3 className={styles.header}>Create Post</h3>
             <div className={styles.body}>
                 <div className={styles.avatar}>
                     <Avatar/>
                 </div>
                 <div className={styles.input}>
                     <TextArea
-                        newPostText={props.newPostText}
-                        dispatch={props.dispatch}/>
-                    <SendButton dispatch={props.dispatch}/>
+                        newInputText={props.newInputText}
+                        updateInputText={props.updateInputText}/>
+                    <SendButton addPost={props.addPost}/>
                 </div>
             </div>
         </div>

@@ -1,16 +1,15 @@
 import React from 'react';
 import styles from './SendButton.module.css'
-import {addPostActionCreator} from "../../../../Redux/profileReducer";
 
 const SendButton = (props) => {
 
-    let onAddPostClick = () => {
-        props.dispatch(addPostActionCreator());
+    let onButtonClick = () => {
+        props.addPost();
     };
 
     return (
         <div className={styles.button}>
-            <button onClick={onAddPostClick}>Send</button>
+            <button onClick={onButtonClick}>Send</button>
         </div>
     );
 };

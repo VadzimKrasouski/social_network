@@ -1,23 +1,19 @@
 import React from 'react';
 import styles from './TextArea.module.css'
-import {updatePostActionCreator} from "../../../../Redux/profileReducer";
 
 const TextArea = (props) => {
 
-    let newPostElement = React.createRef();
-
-    let onTextChange = () => {
-        let postText = newPostElement.current.value;
-        props.dispatch(updatePostActionCreator(postText));
-    }
+    let onTextChange = (e) => {
+        let text = e.target.value;
+        props.updateInputText(text)
+     }
 
     return (
         <div className={styles.textArea}>
-            <textarea ref={newPostElement}
-                      onChange={onTextChange}
+            <textarea onChange={onTextChange}
                       placeholder={'Write something here...'}
                       rows={'1'}
-                      value={props.newPostText}/>
+                      value={props.newInputText}/>
         </div>
     );
 };

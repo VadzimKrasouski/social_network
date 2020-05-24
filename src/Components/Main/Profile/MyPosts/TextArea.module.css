@@ -5,7 +5,7 @@
 
 }
 
-textarea {
+.textArea textarea {
     min-width: 100%;
     width: auto;
     resize: none;
