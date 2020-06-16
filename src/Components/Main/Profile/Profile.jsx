@@ -18,11 +18,8 @@ const Profile = (props) => {
     );
 };
 
-const mapStateToProps = (state) => {
-    return {
-        profilePage: state.profilePage,
-    }
-}
+const mapStateToProps = (state) => ({profilePage: state.profilePage});
+
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -33,7 +30,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(updatePostAC(text))
         }
     }
-}
+};
 
-const ConnectedProfile = connect(mapStateToProps, mapDispatchToProps)(Profile)
+const ConnectedProfile = connect(mapStateToProps, mapDispatchToProps)(Profile);
 export default ConnectedProfile;

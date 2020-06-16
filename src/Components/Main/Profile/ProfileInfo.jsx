@@ -1,11 +1,13 @@
 import React from 'react';
 import styles from './ProfileInfo.module.css'
 import Avatar from "../../Avatar/Avatar";
+import avatar from '../../Avatar/ava.jpeg'
+
 
 const ProfileInfo = () => {
     return (
         <div className={styles.profileInfo}>
-                <Avatar/>
+                <Avatar avatar={avatar}/>
             <div className={styles.descriptions}>
                 <h3>Vadzim Krasouski</h3>
                 <span>Date of Birth: 5 august</span>
