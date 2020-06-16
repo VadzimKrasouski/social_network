@@ -6,13 +6,13 @@ import Main from "./Components/Main/Main";
 import Footer from "./Components/Footer/Footer";
 import PropTypes from 'prop-types';
 
-const App = (props) => {
+const  App = () => {
     return (
         <div className={styles.appWrapper}>
             <div className={styles.container}>
                 <Header/>
                 <Sidebar/>
-                <Main state={props.state} dispatch={props.dispatch}/>
+                <Main/>
                 <Footer/>
             </div>
         </div>

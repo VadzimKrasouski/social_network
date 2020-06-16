@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './CreatePost.module.css'
 import Avatar from "../../../Avatar/Avatar";
-import TextArea from "./TextArea";
-import SendButton from "./SendButton";
+import TextArea from "../../../TextArea/TextArea";
+import SendButton from "../../../SendButton/SendButton";
 
 const CreatePost = (props) => {
 

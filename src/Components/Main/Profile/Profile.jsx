@@ -3,6 +3,8 @@ import styles from './Profile.module.css'
 import Cover from "./Cover/Cover";
 import ProfileInfo from "./ProfileInfo";
 import MyPosts from "./MyPosts/MyPosts";
+import {connect} from "react-redux";
+import {addPostAC, updatePostAC} from "../../../Redux/profileReducer";
 
 const Profile = (props) => {
     return (
@@ -10,9 +12,28 @@ const Profile = (props) => {
             <Cover/>
             <ProfileInfo/>
             <MyPosts profilePost={props.profilePage}
-                     dispatch={props.dispatch}/>
+                     addPost={props.addPost}
+                     updatePost={props.updatePost}/>
         </div>
     );
 };
 
-export default Profile;
+const mapStateToProps = (state) => {
+    return {
+        profilePage: state.profilePage,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addPost: () => {
+            dispatch(addPostAC())
+        },
+        updatePost: (text) => {
+            dispatch(updatePostAC(text))
+        }
+    }
+}
+
+const ConnectedProfile = connect(mapStateToProps, mapDispatchToProps)(Profile)
+export default ConnectedProfile;

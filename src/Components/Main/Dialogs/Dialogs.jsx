@@ -2,25 +2,28 @@ import React from 'react';
 import styles from './Dialogs.module.css'
 import DialogItem from "./DialogItem";
 import MessageItem from "./MessageItem";
-import {sendMessageCreator, updateNewMessageTextCreator} from "../../../Redux/dialogsReducer";
-import SendButton from "../Profile/MyPosts/SendButton";
-import TextArea from "../Profile/MyPosts/TextArea";
+import SendButton from "../../SendButton/SendButton";
+import TextArea from "../../TextArea/TextArea";
+import {sendMessageAC, updateNewMessageTextAC} from "../../../Redux/dialogsReducer";
+import {connect} from "react-redux";
 
 const Dialogs = (props) => {
-    let dialogItems = props.state.dialogs.map(d =>
-        <DialogItem name={d.name} id={d.id}/>);
+    let dialogItems = props.dialogsPage.dialogs.map(d =>
+        <DialogItem name={d.name} id={d.id} key={d.id}/>);
 
-    let messageItems = props.state.messages.map(m =>
-        <MessageItem message={m.message}/>);
+    let messageItems = props.dialogsPage.messages.map(m =>
+        <MessageItem message={m.message} key={m.id}/>);
 
-    let newMessageText = props.state.newMessageText;
+    let newMessageText = props.dialogsPage.newMessageText;
+
+
 
     let onSendMessageClick = () => {
-        props.dispatch(sendMessageCreator())
+        props.sendMessage();
     }
 
     let onNewMessageChange = (text) => {
-        props.dispatch(updateNewMessageTextCreator(text))
+        props.updateNewMessageText(text);
     }
 
     return (
@@ -41,4 +44,16 @@ const Dialogs = (props) => {
     )
 };
 
-export default Dialogs;
+let mapStateToProps = (state) => ({dialogsPage: state.dialogsPage})
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        updateNewMessageText: (text) => {dispatch(updateNewMessageTextAC(text))},
+        sendMessage: () => {dispatch(sendMessageAC())}
+    }
+}
+
+
+
+const ConnectedDialogs = connect (mapStateToProps, mapDispatchToProps)(Dialogs);
+export default ConnectedDialogs;

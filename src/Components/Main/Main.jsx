@@ -8,14 +8,11 @@ import Music from './Music/Music';
 import Settings from './Settings/Settings';
 import PropTypes from 'prop-types';
 
-const Main = (props) => {
+const Main = () => {
     return (
         <div className={styles.main}>
-            <Route path='/profile' render={() =>
-                <Profile profilePage={props.state.profilePage}
-                         dispatch={props.dispatch}/>}/>
-            <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage}
-                                                          dispatch={props.dispatch}/>}/>
+            <Route path='/profile' render={() => <Profile />}/>
+            <Route path='/dialogs' render={() => <Dialogs />}/>
             <Route path='/news' render={() => <News/>}/>
             <Route path='/music' render={() => <Music/>}/>
             <Route path='/settings' render={() => <Settings/>}/>

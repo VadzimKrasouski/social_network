@@ -1,7 +1,7 @@
 import profileReducer from "./profileReducer";
 import dialogsReducer from "./dialogsReducer";
 
-let store = {
+let ______store = {
     _state: {
         profilePage: {
             posts: [
@@ -42,8 +42,7 @@ let store = {
     },
 
     dispatch(action) {
-
-        this._state.profilePage = profileReducer (this._state.profilePage, action);
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
 
         this._callSubscriber(this._state);
@@ -55,7 +54,4 @@ let store = {
 };
 
 
-
-
-
-export default store;
+export default ______store;
