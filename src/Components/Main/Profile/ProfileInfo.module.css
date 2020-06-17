@@ -1,7 +1,7 @@
 .profileInfo {
     grid-area: profileInfo;
     background-color: white;
-    -webkit-border-radius: 75px 5px 5px 5px;
+    border-radius: 75px 5px 5px 5px;
     border: none;
     box-shadow: 0 0 20px 0 rgba(44, 101, 144, 0.1);
     display: flex;
@@ -12,6 +12,7 @@
 
 .profileInfo img {
     height: 150px;
+    width: 150px;
 }
 
 .descriptions {

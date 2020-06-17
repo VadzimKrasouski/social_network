@@ -11,7 +11,7 @@ const Friends = () => {
             </nav>
             <div className={styles.friend}>
                 <div className={styles.avatar}>
-                    <Avatar/>
+                    <Avatar img={null}/>
                 </div>
                 <div className={styles.name}>Andrey</div>
             </div>

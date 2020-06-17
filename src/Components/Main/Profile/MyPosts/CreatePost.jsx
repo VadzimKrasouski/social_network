@@ -3,6 +3,7 @@ import styles from './CreatePost.module.css'
 import Avatar from "../../../Avatar/Avatar";
 import TextArea from "../../../TextArea/TextArea";
 import SendButton from "../../../SendButton/SendButton";
+import ava from '../../../../assets/img/ava.jpeg';
 
 const CreatePost = (props) => {
 
@@ -11,7 +12,7 @@ const CreatePost = (props) => {
             <h3 className={styles.header}>Create Post</h3>
             <div className={styles.body}>
                 <div className={styles.avatar}>
-                    <Avatar/>
+                    <Avatar img={ava}/>
                 </div>
                 <div className={styles.input}>
                     <TextArea

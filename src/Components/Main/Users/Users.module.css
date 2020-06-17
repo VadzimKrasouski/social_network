@@ -4,7 +4,37 @@
     background-color: white;
     border: none;
     box-shadow: 0 0 20px 0 rgba(44, 101, 144, 0.1);
-    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.userBlock {
+    display: flex;
+    width: 400px;
+    margin: 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.userInfo {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 5px;
+}
+.userName {
+    margin: 5px;
+}
+
+.userLocation {
+    margin: 5px;
 }
 
 .avatar img {
