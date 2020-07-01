@@ -1,14 +1,16 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
-const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE'
-const SET_TOTAL_COUNT = 'SET-TOTAL-COUNT'
+const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
+const SET_TOTAL_COUNT = 'SET-TOTAL-COUNT';
+const TOGGLE_ISFETCHING = 'TOGGLE-ISFETCHING';
 
 let initialState = {
-    users: [ ],
+    users: [],
     pageSize: 100,
     totalUsersCount: 0,
-    currentPage: 4
+    currentPage: 1,
+    isFetching: false
 
 }
 const usersReducer = (state = initialState, action) => {
@@ -16,40 +18,47 @@ const usersReducer = (state = initialState, action) => {
         case SET_USERS: {
             return {...state, users: action.users}
         }
+        case TOGGLE_ISFETCHING: {
+            return {...state, isFetching: action.isFetching}
+        }
         case SET_TOTAL_COUNT: {
-            return {...state, totalUsersCount: action.totalCount}
+            return {...state, totalUsersCount: action.totalUsersCount}
         }
         case SET_CURRENT_PAGE: {
+            debugger
             return {...state, currentPage: action.currentPage}
         }
         case FOLLOW:
             return {
                 ...state,
-            users: state.users.map( u => {
-                if (u.id === action.userId) {
-                    return {...u, followed: true}
-                }
-                return u;
-            })}
+                users: state.users.map(u => {
+                    if (u.id === action.userId) {
+                        return {...u, followed: true}
+                    }
+                    return u;
+                })
+            }
         case UNFOLLOW:
             return {
                 ...state,
-                users: state.users.map( u => {
+                users: state.users.map(u => {
                     if (u.id === action.userId) {
                         return {...u, followed: false}
                     }
                     return u;
-                })}
+                })
+            }
         default:
             return state;
     }
 }
 
-export const followAC = (userId) => ({type: FOLLOW, userId})
-export const unFollowAC = (userId) => ({type: UNFOLLOW, userId})
-export const setUsersAC = (users) => ({type: SET_USERS, users})
-export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
-export const setTotalusersCountAC = (totalCount) => ({type: SET_TOTAL_COUNT, totalCount})
+export const follow = (userId) => ({type: FOLLOW, userId})
+export const unFollow = (userId) => ({type: UNFOLLOW, userId})
+export const setUsers = (users) => ({type: SET_USERS, users})
+export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
+export const setTotalusersCount = (totalUsersCount) => ({type: SET_TOTAL_COUNT, totalUsersCount})
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_ISFETCHING, isFetching})
 
 
 export default usersReducer;
