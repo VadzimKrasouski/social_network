@@ -16,8 +16,9 @@ const Users = (props) => {
         <div className={styles.users}>
             <div className={styles.pagination}>
                 {pages.map(p => {
+                    debugger
                     return <span className={props.currentPage === p && styles.selectedPage}
-                                 onClick={(e) => {
+                                 onClick={() => {
                                      props.onPageChanged(p)
                                  }}>{p + " "}</span>
                 })}

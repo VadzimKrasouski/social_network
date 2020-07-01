@@ -4,7 +4,7 @@ import styles from './UsersContainer.module.css'
 import {
     follow,
     setCurrentPage,
-    setTotalusersCount,
+    setTotalUsersCount,
     setUsers,
     toggleIsFetching,
     unFollow
@@ -20,7 +20,7 @@ class UsersContainer extends React.Component {
         page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
             this.props.toggleIsFetching(false);
             this.props.setUsers(response.data.items);
-            this.props.setTotalusersCount(response.data.totalCount);
+            this.props.setTotalUsersCount(response.data.totalCount);
         })
     }
 
@@ -57,6 +57,8 @@ let mapStateToProps = (state) => {
     }
 }
 
-const ConnectedUsersContainer = connect(mapStateToProps, follow, unFollow, setUsers,
-    setCurrentPage, setTotalusersCount, toggleIsFetching)(UsersContainer)
+const ConnectedUsersContainer = connect(mapStateToProps, {
+    follow, unFollow, setUsers,
+    setCurrentPage, setTotalUsersCount, toggleIsFetching
+})(UsersContainer)
 export default ConnectedUsersContainer;
