@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Friends.module.css'
 import {NavLink} from "react-router-dom";
-import Avatar from "../Avatar/Avatar";
+import Avatar from "../../common/Avatar/Avatar";
 
 const Friends = () => {
     return (

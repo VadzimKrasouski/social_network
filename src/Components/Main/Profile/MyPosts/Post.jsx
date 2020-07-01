@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Post.module.css'
-import Avatar from "../../../Avatar/Avatar";
+import Avatar from "../../../../common/Avatar/Avatar";
 import Likes from "./Likes";
 import ava from '../../../../assets/img/ava.jpeg';
 

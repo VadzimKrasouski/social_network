@@ -1,9 +1,9 @@
 import React from "react";
 import styles from './Users.module.css'
-import Avatar from "../../Avatar/Avatar";
+import Avatar from "../../../common/Avatar/Avatar";
+import {NavLink} from "react-router-dom";
 
 const Users = (props) => {
-    debugger
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
 
     let pages = [];
@@ -16,7 +16,6 @@ const Users = (props) => {
         <div className={styles.users}>
             <div className={styles.pagination}>
                 {pages.map(p => {
-                    debugger
                     return <span className={props.currentPage === p && styles.selectedPage}
                                  onClick={() => {
                                      props.onPageChanged(p)
@@ -26,7 +25,9 @@ const Users = (props) => {
             {props.users.map(u => <div key={u.id} className={styles.userBlock}>
                 <span>
                     <div className={styles.avatar}>
+                        <NavLink to={'/profile/' + u.id}>
                         <Avatar img={u.photos.small}/>
+                        </NavLink>
                     </div>
                     <div>
                         {u.followed

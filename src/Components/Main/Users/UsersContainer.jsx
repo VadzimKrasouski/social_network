@@ -11,7 +11,7 @@ import {
 } from "../../../Redux/usersReducer";
 import * as axios from 'axios';
 import Users from "./Users";
-import preloader from './../../../assets/img/preloader.gif'
+import Preloader from "../../../common/Preloader";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -36,7 +36,7 @@ class UsersContainer extends React.Component {
 
     render() {
         return <div className={styles.usersContainer}>
-            {this.props.isFetching ? <img src={preloader} alt={'preloader'}/> :
+            {this.props.isFetching ? <Preloader/> :
                 <Users totalUsersCount={this.props.totalUsersCount}
                        pageSize={this.props.pageSize}
                        currentPage={this.props.currentPage}
@@ -62,3 +62,4 @@ const ConnectedUsersContainer = connect(mapStateToProps, {
     setCurrentPage, setTotalUsersCount, toggleIsFetching
 })(UsersContainer)
 export default ConnectedUsersContainer;
+

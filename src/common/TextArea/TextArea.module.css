@@ -16,7 +16,7 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     color: #a09e9e;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    /*transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;*/
 }
 
 textarea:focus {

@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './Dialogs.module.css'
 import DialogItem from "./DialogItem";
 import MessageItem from "./MessageItem";
-import SendButton from "../../SendButton/SendButton";
-import TextArea from "../../TextArea/TextArea";
+import SendButton from "../../../common/SendButton/SendButton";
+import TextArea from "../../../common/TextArea/TextArea";
 import {sendMessageAC, updateNewMessageTextAC} from "../../../Redux/dialogsReducer";
 import {connect} from "react-redux";
 
