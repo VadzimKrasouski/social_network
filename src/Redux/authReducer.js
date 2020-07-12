@@ -13,7 +13,7 @@ let initialState = {
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER_DATA: {
-            return {...state, ...action.data.data, isAuth: true}
+            return {...state, ...action.data, isAuth: true}
         }
         case SET_AUTH_PROFILE: {
             return {...state, authProfile: action.profile}
