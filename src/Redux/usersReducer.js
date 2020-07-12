@@ -1,9 +1,9 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
-const SET_USERS = 'SET-USERS';
-const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
-const SET_TOTAL_COUNT = 'SET-TOTAL-COUNT';
-const TOGGLE_ISFETCHING = 'TOGGLE-ISFETCHING';
+const SET_USERS = 'SET_USERS';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
+const TOGGLE_ISFETCHING = 'TOGGLE_ISFETCHING';
 
 let initialState = {
     users: [],
@@ -25,7 +25,6 @@ const usersReducer = (state = initialState, action) => {
             return {...state, totalUsersCount: action.totalUsersCount}
         }
         case SET_CURRENT_PAGE: {
-            debugger
             return {...state, currentPage: action.currentPage}
         }
         case FOLLOW:
@@ -63,8 +62,3 @@ export const toggleIsFetching = (isFetching) => ({type: TOGGLE_ISFETCHING, isFet
 
 export default usersReducer;
 
-/*{id: 1, followed: true, fullName: 'Dmitry', status: "I'm a programmer", location: {city: 'Minsk', country: 'Belarus'}},
-       {id: 2, followed: false, fullName: 'Victor', status: 'We will rock you', location: {city: 'Moscow', country: 'Russia'}},
-       {id: 3, followed: true, fullName: 'Ann', status: "I'm a programmer, too", location: {city: 'Vitebsk', country: 'Belarus'}},
-       {id: 4, followed: false, fullName: 'Fill', status: 'I like it', location: {city: 'Warsaw', country: 'Poland'}},
-       {id: 5, followed: true, fullName: 'Inna', status: "Cooool", location: {city: 'Minsk', country: 'Belarus'}},*/
