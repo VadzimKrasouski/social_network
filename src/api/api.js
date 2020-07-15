@@ -42,16 +42,10 @@ export const authAPI = {
 export const followAPI = {
     follow(userId) {
         return instance.post(`follow/${userId}`)
-            .then(response => {
-                debugger
-                return response.data.resultCode === 0
-            })
+            .then(response => response.data.resultCode)
     },
     unFollow(userId) {
         return instance.delete(`follow/${userId}`)
-            .then(response => {
-                debugger
-                return response.data.resultCode === 0
-            })
+            .then(response => response.data.resultCode)
     }
 }
