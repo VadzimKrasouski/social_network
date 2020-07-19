@@ -4,7 +4,7 @@ import CreatePost from "./CreatePost";
 import Post from "./Post";
 
 const MyPosts = (props) => {
-    let post = props.profilePost.posts.map(p =>
+    let post = props.profilePage.posts.map(p =>
         <Post key={p.id} post={p.post}
               likesCount={p.likesCount}/>);
 
@@ -20,7 +20,7 @@ const MyPosts = (props) => {
         <div className={styles.myPosts}>
             <CreatePost updateInputText={onTextChange}
                         addPost={onAddPost}
-                        newInputText={props.profilePost.newPostText}/>
+                        newInputText={props.profilePage.newPostText}/>
             {post}
         </div>
     );

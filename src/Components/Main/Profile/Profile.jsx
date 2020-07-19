@@ -15,7 +15,7 @@ const Profile = (props) => {
         <div className={styles.profile}>
             <Cover/>
             <ProfileInfo profile={props.profilePage.profile}/>
-            <MyPosts profilePost={props.profilePage}
+            <MyPosts profilePage={props.profilePage}
                      addPost={props.addPost}
                      updatePost={props.updatePost}/>
         </div>
