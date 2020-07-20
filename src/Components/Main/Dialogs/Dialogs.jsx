@@ -7,6 +7,7 @@ import TextArea from "../../../common/TextArea/TextArea";
 import {sendMessage, updateNewMessageText} from "../../../Redux/dialogsReducer";
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 const Dialogs = (props) => {
 
@@ -48,7 +49,8 @@ let mapStateToProps = (state) => ({
     dialogsPage: state.dialogsPage,
 })
 
-let AuthRedirectedComponent = withAuthRedirect(Dialogs)
 
-const ConnectedDialogs = connect(mapStateToProps, {sendMessage, updateNewMessageText})(AuthRedirectedComponent);
-export default ConnectedDialogs;
+export default compose(
+    connect(mapStateToProps, {sendMessage, updateNewMessageText}),
+    withAuthRedirect
+)(Dialogs);
