@@ -4,6 +4,7 @@ import styles from './ProfileContainer.module.css'
 import {addPost, getProfile, updatePost} from "../../../Redux/profileReducer";
 import Profile from "./Profile";
 import {withRouter} from "react-router-dom";
+import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
@@ -26,12 +27,13 @@ class ProfileContainer extends React.Component {
 
 const mapStateToProps = (state) => ({
     profilePage: state.profilePage,
-    isAuth: state.auth.isAuth,
     /*id: state.auth.id,
     authProfile: state.auth.authProfile*/
 });
 
-let WithUrlDataContainerComponent = withRouter(ProfileContainer);
+let AuthRedirectedComponent = withAuthRedirect(ProfileContainer)
+
+let WithUrlDataContainerComponent = withRouter(AuthRedirectedComponent);
 const ConnectedProfileContainer =
     connect(mapStateToProps, {addPost, updatePost, getProfile})(WithUrlDataContainerComponent);
 export default ConnectedProfileContainer;

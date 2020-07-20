@@ -4,10 +4,12 @@ import DialogItem from "./DialogItem";
 import MessageItem from "./MessageItem";
 import SendButton from "../../../common/SendButton/SendButton";
 import TextArea from "../../../common/TextArea/TextArea";
-import {sendMessageAC, updateNewMessageTextAC} from "../../../Redux/dialogsReducer";
+import {sendMessage, updateNewMessageText} from "../../../Redux/dialogsReducer";
 import {connect} from "react-redux";
+import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 
 const Dialogs = (props) => {
+
     let dialogItems = props.dialogsPage.dialogs.map(d =>
         <DialogItem name={d.name} id={d.id} key={d.id}/>);
 
@@ -15,8 +17,6 @@ const Dialogs = (props) => {
         <MessageItem message={m.message} key={m.id}/>);
 
     let newMessageText = props.dialogsPage.newMessageText;
-
-
 
     let onSendMessageClick = () => {
         props.sendMessage();
@@ -44,16 +44,11 @@ const Dialogs = (props) => {
     )
 };
 
-let mapStateToProps = (state) => ({dialogsPage: state.dialogsPage})
+let mapStateToProps = (state) => ({
+    dialogsPage: state.dialogsPage,
+})
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        updateNewMessageText: (text) => {dispatch(updateNewMessageTextAC(text))},
-        sendMessage: () => {dispatch(sendMessageAC())}
-    }
-}
+let AuthRedirectedComponent = withAuthRedirect(Dialogs)
 
-
-
-const ConnectedDialogs = connect (mapStateToProps, mapDispatchToProps)(Dialogs);
+const ConnectedDialogs = connect(mapStateToProps, {sendMessage, updateNewMessageText})(AuthRedirectedComponent);
 export default ConnectedDialogs;

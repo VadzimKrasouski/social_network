@@ -39,7 +39,9 @@ export const setAuthProfile = (profile) => ({
 export const getAuthUserData = () => (dispatch, getState) => {
     authAPI.getAuthUserData()
         .then(data => {
-            dispatch(setAuthUserData(data));
+            if (data.resultCode === 0) {
+                dispatch(setAuthUserData(data.data));
+            }
             let currentId = getState().auth.id
             authAPI.getAuthProfile(currentId)
                 .then(data => {

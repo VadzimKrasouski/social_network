@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import styles from './UsersContainer.module.css'
 import {
     follow,
-    unfollow,
+    unFollow,
     getUsers,
     setCurrentPage,
     toggleFollowingProgress,
@@ -52,9 +52,8 @@ let mapStateToProps = (state) => {
 
 const ConnectedUsersContainer = connect(mapStateToProps,
     {
-        follow, unfollow,
-        setCurrentPage, toggleIsFetching,
-        toggleFollowingProgress, getUsers
+        follow, unFollow, setCurrentPage,
+        toggleIsFetching, toggleFollowingProgress, getUsers
     })(UsersContainer)
 export default ConnectedUsersContainer;
 
