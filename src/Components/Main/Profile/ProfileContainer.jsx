@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from "react-redux";
 import styles from './ProfileContainer.module.css'
-import {addPost, getProfile, updatePost} from "../../../Redux/profileReducer";
+import {addPost, getProfile, getUserStatus, updatePost, updateUserStatus} from "../../../Redux/profileReducer";
 import Profile from "./Profile";
 import {withRouter} from "react-router-dom";
-import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
+// import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 import {compose} from "redux";
 
 class ProfileContainer extends React.Component {
@@ -14,13 +14,14 @@ class ProfileContainer extends React.Component {
         if (!userId) {
             userId = 2
         }
-        this.props.getProfile(userId)
+        this.props.getUserStatus(userId);
+        this.props.getProfile(userId);
     }
 
     render() {
         return (
             <div className={styles.container}>
-                <Profile {...this.props}/>
+                <Profile {...this.props} updateUserStatus={this.props.updateUserStatus}/>
             </div>
         );
     }
@@ -33,7 +34,7 @@ const mapStateToProps = (state) => ({
 });
 
 export default compose(
-    connect(mapStateToProps, {addPost, updatePost, getProfile}),
+    connect(mapStateToProps, {addPost, updatePost, getProfile, getUserStatus, updateUserStatus}),
     withRouter,
-    withAuthRedirect
+    // withAuthRedirect
 )(ProfileContainer);

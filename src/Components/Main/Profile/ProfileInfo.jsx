@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './ProfileInfo.module.css'
 import Avatar from "../../../common/Avatar/Avatar";
+import ProfileStatus from './ProfileStatus'
 
 
 const ProfileInfo = (props) => {
@@ -8,32 +9,37 @@ const ProfileInfo = (props) => {
         <div className={styles.profileInfo}>
             <Avatar img={props.profile.photos.large}/>
             <div className={styles.descriptions}>
-                <h3>{props.profile.fullName}</h3>
-                <h4>{props.profile.aboutMe}</h4>
-                <span>Date of Birth: 5 august</span>
-                <span>City: Vitebsk</span>
-                <span>Education: PSU'11</span>
-                <span>Facebook: <a href={props.profile.contacts.facebook}>
+                <div className={styles.aboutMe}><h3>{props.profile.fullName}</h3>
+                    <ProfileStatus status={props.status}
+                                   updateUserStatus={props.updateUserStatus}/>
+                    <h4>{props.profile.aboutMe}</h4>
+                    <span>Date of Birth: 5 august</span>
+                    <span>City: Vitebsk</span>
+                    <span>Education: PSU'11</span>
+                </div>
+                <div className={styles.contacts}>
+                    <span className={styles.title}>Contacts</span>
+                    <span>Facebook: <a href={props.profile.contacts.facebook}>
                     {props.profile.contacts.facebook}</a>
                 </span>
-                <span>WebSite: <a href={props.profile.contacts.website}>
+                    <span>WebSite: <a href={props.profile.contacts.website}>
                     {props.profile.contacts.website}</a>
                 </span>
-                <span>vk: <a href={props.profile.contacts.vk}>
+                    <span>vk: <a href={props.profile.contacts.vk}>
                    {props.profile.contacts.vk} </a>
                 </span>
-                <span>Twitter: <a href={props.profile.contacts.twitter}>
+                    <span>Twitter: <a href={props.profile.contacts.twitter}>
                     {props.profile.contacts.twitter}</a>
                 </span>
-                <span>Instagram: <a href={props.profile.contacts.instagram}>
+                    <span>Instagram: <a href={props.profile.contacts.instagram}>
                     {props.profile.contacts.instagram}</a>
                 </span>
-                <span>YouTube: <a href={props.profile.contacts.youtube}>
+                    <span>YouTube: <a href={props.profile.contacts.youtube}>
                    {props.profile.contacts.youtube}</a>
                 </span>
-                <span>GitHub: <a href={props.profile.contacts.github}>
+                    <span>GitHub: <a href={props.profile.contacts.github}>
                     {props.profile.contacts.github}</a>
-                </span>
+                </span></div>
             </div>
         </div>
     );
