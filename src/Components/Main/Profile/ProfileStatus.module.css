@@ -1,0 +1,10 @@
+.notActive {
+    width: 100%;
+}
+
+.notActive span:hover {
+    width: 100%;
+    background: #939393;
+    cursor: pointer;
+    border-radius: 4px;
+}

@@ -5,15 +5,15 @@ import {Route} from 'react-router-dom';
 import News from './News/News';
 import Music from './Music/Music';
 import Settings from './Settings/Settings';
-import UsersContainer from "./Users/UsersContainer";
-import ProfileContainer from "./Profile/ProfileContainer";
-import Login from "../Login/Login";
+import UsersContainer from './Users/UsersContainer';
+import ProfileContainer from './Profile/ProfileContainer';
+import Login from '../Login/Login';
 
 const Main = () => {
     return (
         <div className={styles.main}>
-            <Route exact path='/'  render={() => <ProfileContainer/>}/>
-            <Route path='/profile/:userId?'  render={() => <ProfileContainer/>}/>
+            <Route exact path='/' render={() => <ProfileContainer/>}/>
+            <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
             <Route path='/dialogs' render={() => <Dialogs/>}/>
             <Route path='/news' render={() => <News/>}/>
             <Route path='/music' render={() => <Music/>}/>

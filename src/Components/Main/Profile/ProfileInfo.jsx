@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ProfileInfo.module.css'
-import Avatar from "../../../common/Avatar/Avatar";
+import Avatar from '../../../common/Avatar/Avatar';
 import ProfileStatus from './ProfileStatus'
 
 

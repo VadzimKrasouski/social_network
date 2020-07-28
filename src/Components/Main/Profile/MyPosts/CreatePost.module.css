@@ -29,3 +29,55 @@
 }
 
 
+.textArea {
+    display: flex;
+    width: 100%;
+}
+
+.textArea input {
+    box-sizing: border-box;
+    width: auto;
+    resize: none;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #a09e9e;
+    /*transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;*/
+}
+
+input:focus {
+    color: #495057;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    background-color: white;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color: #50b5ff;
+    transition: all 0.5s ease-out 0s;
+}
+
+/*.button button {
+    background-color: white;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color: #50b5ff;
+    transition: all 0.5s ease-out 0s;
+}*/
+
+button:hover {
+    color: #3f414d;
+    border: none;
+    outline: none;
+}
+
+
+

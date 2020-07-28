@@ -1,11 +1,14 @@
 import React from 'react';
 import styles from './CreatePost.module.css'
-import Avatar from "../../../../common/Avatar/Avatar";
-import TextArea from "../../../../common/TextArea/TextArea";
-import SendButton from "../../../../common/SendButton/SendButton";
+import Avatar from '../../../../common/Avatar/Avatar';
 import ava from '../../../../assets/img/ava.jpeg';
+import {Field, reduxForm} from 'redux-form';
 
 const CreatePost = (props) => {
+    let onSendPostClick = (value) => {
+        props.addPost(value.newPostText);
+        console.log(value.newPostText)
+    }
 
     return (
         <div className={styles.createPost}>
@@ -15,12 +18,7 @@ const CreatePost = (props) => {
                     <Avatar img={ava}/>
                 </div>
                 <div className={styles.input}>
-                    <TextArea
-                        newInputText={props.newInputText}
-                        updateInputText={props.updateInputText}
-                        placeholder={'Write something here...'}
-                        rows={'1'}/>
-                    <SendButton addPost={props.addPost}/>
+                    <CreatePostForm onSubmit={onSendPostClick}/>
                 </div>
             </div>
         </div>
@@ -28,3 +26,15 @@ const CreatePost = (props) => {
 };
 
 export default CreatePost;
+
+let CreatePostForm = (props) => {
+    const {handleSubmit} = props
+    return (
+        <form className={styles.textArea} onSubmit={handleSubmit}>
+            <Field placeholder='Write something here...' name='newPostText' component='input'/>
+            <button className={styles.button}>Send</button>
+        </form>
+    );
+};
+
+CreatePostForm = reduxForm({form: 'newPost'})(CreatePostForm)

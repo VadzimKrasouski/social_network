@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './Profile.module.css'
-import Cover from "./Cover/Cover";
-import ProfileInfo from "./ProfileInfo";
-import MyPosts from "./MyPosts/MyPosts";
-import Preloader from "../../../common/Preloader";
+import Cover from './Cover/Cover';
+import ProfileInfo from './ProfileInfo';
+import MyPosts from './MyPosts/MyPosts';
+import Preloader from '../../../common/Preloader';
 
 const Profile = (props) => {
     if (!props.profilePage.profile) {

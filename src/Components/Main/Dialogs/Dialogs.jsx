@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './Dialogs.module.css'
-import DialogItem from "./DialogItem";
-import MessageItem from "./MessageItem";
-import SendButton from "../../../common/SendButton/SendButton";
-import TextArea from "../../../common/TextArea/TextArea";
-import {sendMessage, updateNewMessageText} from "../../../Redux/dialogsReducer";
-import {connect} from "react-redux";
-import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
-import {compose} from "redux";
+import DialogItem from './DialogItem';
+import MessageItem from './MessageItem';
+import SendButton from '../../../common/SendButton/SendButton';
+import TextArea from '../../../common/TextArea/TextArea';
+import {sendMessage, updateNewMessageText} from '../../../Redux/dialogsReducer';
+import {connect} from 'react-redux';
+import {withAuthRedirect} from '../../../hoc/withAuthRedirect';
+import {compose} from 'redux';
 
 const Dialogs = (props) => {
 

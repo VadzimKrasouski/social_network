@@ -18,6 +18,7 @@
     padding: 0 20px;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .descriptions a {
@@ -25,9 +26,11 @@
     text-decoration: none;
     transition: all 0.5s ease-out 0s;
 }
+
 .descriptions a:hover {
     color: #50b5ff;
 }
+
 .aboutMe {
     display: flex;
     flex-direction: column;
