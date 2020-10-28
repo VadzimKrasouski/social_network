@@ -13,9 +13,6 @@ const ProfileInfo = (props) => {
                     <ProfileStatus status={props.status}
                                    updateUserStatus={props.updateUserStatus}/>
                     <h4>{props.profile.aboutMe}</h4>
-                    <span>Date of Birth: 5 august</span>
-                    <span>City: Vitebsk</span>
-                    <span>Education: PSU'11</span>
                 </div>
                 <div className={styles.contacts}>
                     <span className={styles.title}>Contacts</span>
