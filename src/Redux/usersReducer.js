@@ -7,11 +7,13 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
 const TOGGLE_ISFETCHING = 'TOGGLE_ISFETCHING';
 const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
+const SET_SEARCH_NAME = 'SET_SEARCH_NAME';
 
 let initialState = {
     users: [],
     pageSize: 100,
-    totalUsersCount: 0,
+    searchName: '',
+    totalCount: 0,
     currentPage: 1,
     isFetching: false,
     followingInProgress: []
@@ -26,7 +28,7 @@ const usersReducer = (state = initialState, action) => {
             return {...state, isFetching: action.isFetching}
         }
         case SET_TOTAL_COUNT: {
-            return {...state, totalUsersCount: action.totalUsersCount}
+            return {...state, totalCount: action.totalCount}
         }
         case TOGGLE_IS_FOLLOWING_PROGRESS: {
             return {
@@ -48,6 +50,8 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 users: state.users.map(u => u.id === action.userId ? {...u, followed: false} : u)
             }
+        case SET_SEARCH_NAME:
+            return {...state, searchName: action.searchName}
         default:
             return state;
     }
@@ -58,18 +62,19 @@ export const followSuccess = (userId) => ({type: FOLLOW, userId})
 export const unFollowSuccess = (userId) => ({type: UNFOLLOW, userId})
 export const setUsers = (users) => ({type: SET_USERS, users})
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
-export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_COUNT, totalUsersCount})
+export const setTotalUsersCount = (totalCount) => ({type: SET_TOTAL_COUNT, totalCount})
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_ISFETCHING, isFetching})
 export const toggleFollowingProgress = (followingInProgress, userId) => ({
     type: TOGGLE_IS_FOLLOWING_PROGRESS,
     followingInProgress,
     userId
 })
+export const setSearchName = (searchName) => ({type: SET_SEARCH_NAME, searchName})
 
 //Thunks
-export const getUsers = (currentPage, pageSize) => (dispatch) => {
+export const getUsers = (currentPage, pageSize, searchName) => (dispatch) => {
     dispatch(toggleIsFetching(true));
-    usersAPI.getUsers(currentPage, pageSize)
+    usersAPI.getUsers(currentPage, pageSize, searchName)
         .then(data => {
             dispatch(setUsers(data.items));
             dispatch(setTotalUsersCount(data.totalCount));

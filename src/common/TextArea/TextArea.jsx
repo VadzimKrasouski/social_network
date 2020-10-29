@@ -6,7 +6,7 @@ const TextArea = (props) => {
     let onTextChange = (e) => {
         let text = e.target.value;
         props.updateInputText(text)
-     }
+    }
 
     return (
         <div className={styles.textArea}>

@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 import styles from './Users.module.css'
-import Avatar from "../../../common/Avatar/Avatar";
-import {NavLink} from "react-router-dom";
+import Avatar from '../../../common/Avatar/Avatar';
+import {NavLink} from 'react-router-dom';
 
 const Users = (props) => {
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
+    let pagesCount = Math.ceil(props.totalCount / props.pageSize)
 
     let pages = [];
 
@@ -20,7 +20,7 @@ const Users = (props) => {
                         ? styles.selectedPage : styles.unSelected}
                                  onClick={() => {
                                      props.onPageChanged(p)
-                                 }}>{p + " "}</span>
+                                 }}>{p + ' '}</span>
                 })}
             </div>
             {props.users.map(u => <div key={u.id} className={styles.userBlock}>
@@ -33,9 +33,13 @@ const Users = (props) => {
                     <div>
                         {u.followed
                             ? <button disabled={props.followingInProgress.some(id => id === u.id)}
-                                      onClick={() => {props.unFollow(u.id)}}>Unfollow</button>
+                                      onClick={() => {
+                                          props.unFollow(u.id)
+                                      }}>Unfollow</button>
                             : <button disabled={props.followingInProgress.some(id => id === u.id)}
-                                      onClick={() => {props.follow(u.id)}}>Follow</button>}
+                                      onClick={() => {
+                                          props.follow(u.id)
+                                      }}>Follow</button>}
                             </div>
                             </span>
                 <div className={styles.userInfo}>

@@ -7,7 +7,16 @@
     border-radius: 5px 5px 5px 5px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
+}
+
+.searchArea {
+display: inline;
+}
+
+.users {
 
 }
 
