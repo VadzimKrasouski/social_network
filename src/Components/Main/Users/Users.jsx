@@ -2,27 +2,17 @@ import React from 'react';
 import styles from './Users.module.css'
 import Avatar from '../../../common/Avatar/Avatar';
 import {NavLink} from 'react-router-dom';
+import {Pagination} from '../../../common/Pagination/Pagination';
 
 const Users = (props) => {
-    let pagesCount = Math.ceil(props.totalCount / props.pageSize)
-
-    let pages = [];
-
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i);
-    }
-
     return (
         <div className={styles.users}>
-            <div className={styles.pagination}>
-                {pages.map(p => {
-                    return <span key={p} className={props.currentPage === p
-                        ? styles.selectedPage : styles.unSelected}
-                                 onClick={() => {
-                                     props.onPageChanged(p)
-                                 }}>{p + ' '}</span>
-                })}
-            </div>
+            <Pagination totalCount={props.totalCount}
+                        pageSize={props.pageSize}
+                        currentPage={props.currentPage}
+                        onPageChanged={props.onPageChanged}
+                        portionSize={props.portionSize}
+            />
             {props.users.map(u => <div key={u.id} className={styles.userBlock}>
                 <span>
                     <div className={styles.avatar}>
@@ -60,3 +50,4 @@ const Users = (props) => {
 }
 
 export default Users;
+

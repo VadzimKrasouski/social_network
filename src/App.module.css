@@ -1,5 +1,6 @@
 .appWrapper {
     display: flex;
+    min-width: 400px;
     flex-direction: column;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
@@ -16,7 +17,7 @@
 
 .container {
     display: grid;
-    width: 900px;
+    width: 80%;
     min-height: 100vh;
 
     grid-template-areas:

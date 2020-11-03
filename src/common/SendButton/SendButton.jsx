@@ -8,9 +8,7 @@ const SendButton = (props) => {
     };
 
     return (
-        <div className={styles.button}>
-            <button onClick={onButtonClick}>Send</button>
-        </div>
+        <button className={styles.button} onClick={onButtonClick}>Send</button>
     );
 };
 

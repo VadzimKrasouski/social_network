@@ -30,12 +30,13 @@
 
 .textArea {
     display: flex;
+    justify-content: space-between;
     width: 100%;
 }
 
 .textArea input {
     box-sizing: border-box;
-    width: auto;
+    width: 100%;
     resize: none;
     border: none;
     outline: none;
@@ -46,7 +47,7 @@
     /*transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;*/
 }
 
-input:focus {
+.textArea input:focus {
     color: #495057;
 }
 
@@ -63,16 +64,7 @@ input:focus {
     transition: all 0.5s ease-out 0s;
 }
 
-/*.button button {
-    background-color: white;
-    border: none;
-    outline: none;
-    font-size: 20px;
-    color: #50b5ff;
-    transition: all 0.5s ease-out 0s;
-}*/
-
-button:hover {
+.button:hover {
     color: #3f414d;
     border: none;
     outline: none;

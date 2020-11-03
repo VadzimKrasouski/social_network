@@ -11,10 +11,11 @@ const SET_SEARCH_NAME = 'SET_SEARCH_NAME';
 
 let initialState = {
     users: [],
-    pageSize: 100,
     searchName: '',
+    pageSize: 10,
     totalCount: 0,
     currentPage: 1,
+    portionSize: 10,
     isFetching: false,
     followingInProgress: []
 }

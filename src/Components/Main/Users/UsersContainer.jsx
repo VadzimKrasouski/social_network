@@ -12,9 +12,8 @@ import {
 } from '../../../Redux/usersReducer';
 import Users from './Users';
 import Preloader from '../../../common/Preloader';
-import {withAuthRedirect} from '../../../hoc/withAuthRedirect';
-import {compose} from 'redux';
 import TextArea from '../../../common/TextArea/TextArea';
+import Pagination from '../../../common/Pagination/Pagination';
 
 class UsersContainer extends React.Component {
     state = {
@@ -62,12 +61,13 @@ class UsersContainer extends React.Component {
                           rows={1}/>
                 <hr/>
             </div>
+            <Pagination totalCount={this.props.totalCount}
+                        pageSize={this.props.pageSize}
+                        portionSize={this.props.portionSize}
+                        currentPage={this.props.currentPage}
+                        onPageChanged={this.onPageChanged}/>
             <div className={styles.users}>{this.props.isFetching ? <Preloader/> :
-                <Users totalCount={this.props.totalCount}
-                       pageSize={this.props.pageSize}
-                       currentPage={this.props.currentPage}
-                       users={this.props.users}
-                       onPageChanged={this.onPageChanged}
+                <Users users={this.props.users}
                        follow={this.props.follow}
                        unFollow={this.props.unFollow}
                        followingInProgress={this.props.followingInProgress}
@@ -85,17 +85,23 @@ let mapStateToProps = (state) => {
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
         followingInProgress: state.usersPage.followingInProgress,
-        searchName: state.usersPage.searchName
+        searchName: state.usersPage.searchName,
+        portionSize: state.usersPage.portionSize
     }
 }
 
 
-export default compose(
+export default connect(mapStateToProps,
+        {
+            setSearchName, follow, unFollow, setCurrentPage,
+            toggleIsFetching, toggleFollowingProgress, getUsers
+        })(UsersContainer);
+/*export default compose(
     connect(mapStateToProps,
         {
             setSearchName, follow, unFollow, setCurrentPage,
             toggleIsFetching, toggleFollowingProgress, getUsers
         }),
     withAuthRedirect
-)(UsersContainer);
+)(UsersContainer);*/
 

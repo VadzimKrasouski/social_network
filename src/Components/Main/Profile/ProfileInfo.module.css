@@ -37,10 +37,6 @@
     margin: 5px 0;
 }
 
-.title {
-    font-weight: bold;
-}
-
 .contacts {
     display: flex;
     flex-direction: column;

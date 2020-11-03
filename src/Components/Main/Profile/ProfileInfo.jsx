@@ -15,7 +15,7 @@ const ProfileInfo = (props) => {
                     <h4>{props.profile.aboutMe}</h4>
                 </div>
                 <div className={styles.contacts}>
-                    <span className={styles.title}>Contacts</span>
+                    <h3 >Contacts</h3>
                     <span>Facebook: <a href={props.profile.contacts.facebook}>
                     {props.profile.contacts.facebook}</a>
                 </span>
