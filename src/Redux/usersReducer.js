@@ -3,7 +3,9 @@ import {usersAPI} from '../api/api';
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
+const SET_MORE_USERS = 'SET_MORE_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_SHOW_MORE_CURRENT_PAGE = 'SET_SHOW_MORE_CURRENT_PAGE';
 const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
 const TOGGLE_ISFETCHING = 'TOGGLE_ISFETCHING';
 const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
@@ -15,6 +17,7 @@ let initialState = {
     pageSize: 10,
     totalCount: 0,
     currentPage: 1,
+    showMoreCurrentPage: 2,
     portionSize: 10,
     isFetching: false,
     followingInProgress: []
@@ -24,6 +27,9 @@ const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USERS: {
             return {...state, users: action.users}
+        }
+        case SET_MORE_USERS: {
+            return {...state, users: [...state.users, ...action.users]}
         }
         case TOGGLE_ISFETCHING: {
             return {...state, isFetching: action.isFetching}
@@ -39,7 +45,14 @@ const usersReducer = (state = initialState, action) => {
             }
         }
         case SET_CURRENT_PAGE: {
-            return {...state, currentPage: action.currentPage}
+            return {
+                ...state,
+                currentPage: action.currentPage,
+                showMoreCurrentPage: action.currentPage + 1
+            }
+        }
+        case SET_SHOW_MORE_CURRENT_PAGE: {
+            return {...state, showMoreCurrentPage: state.showMoreCurrentPage + 1}
         }
         case FOLLOW:
             return {
@@ -62,7 +75,9 @@ const usersReducer = (state = initialState, action) => {
 export const followSuccess = (userId) => ({type: FOLLOW, userId})
 export const unFollowSuccess = (userId) => ({type: UNFOLLOW, userId})
 export const setUsers = (users) => ({type: SET_USERS, users})
+export const setMoreUsers = (users) => ({type: SET_MORE_USERS, users})
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
+export const setSowMoreCurrentPage = () => ({type: SET_SHOW_MORE_CURRENT_PAGE})
 export const setTotalUsersCount = (totalCount) => ({type: SET_TOTAL_COUNT, totalCount})
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_ISFETCHING, isFetching})
 export const toggleFollowingProgress = (followingInProgress, userId) => ({
@@ -79,6 +94,18 @@ export const getUsers = (currentPage, pageSize, searchName) => (dispatch) => {
         .then(data => {
             dispatch(setUsers(data.items));
             dispatch(setTotalUsersCount(data.totalCount));
+            dispatch(toggleIsFetching(false));
+        })
+        .catch(error => {
+            console.log(error)
+            dispatch(toggleIsFetching(false));
+        })
+}
+export const moreGetUsers = (showMoreCurrentPage, pageSize, searchName) => (dispatch) => {
+    dispatch(toggleIsFetching(true));
+    usersAPI.getUsers(showMoreCurrentPage, pageSize, searchName)
+        .then(data => {
+            dispatch(setMoreUsers(data.items));
             dispatch(toggleIsFetching(false));
         })
         .catch(error => {

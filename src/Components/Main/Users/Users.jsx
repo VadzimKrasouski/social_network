@@ -2,36 +2,26 @@ import React from 'react';
 import styles from './Users.module.css'
 import Avatar from '../../../common/Avatar/Avatar';
 import {NavLink} from 'react-router-dom';
-import {Pagination} from '../../../common/Pagination/Pagination';
 
 const Users = (props) => {
     return (
-        <div className={styles.users}>
-            <Pagination totalCount={props.totalCount}
-                        pageSize={props.pageSize}
-                        currentPage={props.currentPage}
-                        onPageChanged={props.onPageChanged}
-                        portionSize={props.portionSize}
-            />
+        <>
             {props.users.map(u => <div key={u.id} className={styles.userBlock}>
-                <span>
-                    <div className={styles.avatar}>
+                <span className={styles.avatar}>
                         <NavLink to={'/profile/' + u.id}>
                         <Avatar img={u.photos.small}/>
                         </NavLink>
+                    <div>{u.followed
+                        ? <button className={styles.button} disabled={props.followingInProgress.some(id => id === u.id)}
+                                  onClick={() => {
+                                      props.unFollow(u.id)
+                                  }}>Unfollow</button>
+                        : <button className={styles.button} disabled={props.followingInProgress.some(id => id === u.id)}
+                                  onClick={() => {
+                                      props.follow(u.id)
+                                  }}>Follow</button>}
                     </div>
-                    <div>
-                        {u.followed
-                            ? <button disabled={props.followingInProgress.some(id => id === u.id)}
-                                      onClick={() => {
-                                          props.unFollow(u.id)
-                                      }}>Unfollow</button>
-                            : <button disabled={props.followingInProgress.some(id => id === u.id)}
-                                      onClick={() => {
-                                          props.follow(u.id)
-                                      }}>Follow</button>}
-                            </div>
-                            </span>
+                </span>
                 <div className={styles.userInfo}>
                     <div className={styles.userName}>
                         <NavLink to={'/profile/' + u.id}>
@@ -45,7 +35,7 @@ const Users = (props) => {
                     </div>
                 </div>
             </div>)}
-        </div>
+        </>
     )
 }
 

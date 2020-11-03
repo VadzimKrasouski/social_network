@@ -1,31 +1,36 @@
-
-
-.users {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.selectedPage {
-    font-weight: bold;
-}
-
 .userBlock {
     display: flex;
-    width: 400px;
-    margin: 5px;
+    width: 100%;
+    margin: 5px 0;
     padding: 5px;
     box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.pagination {
+.avatar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.avatar img {
+    width: 50px;
 }
 
-.unSelected {
+.button {
+    margin: 5px 0;
+    background-color: #50b5ff;
+    color: white;
+    border: 1px solid #50b5ff;
+    padding: 4px 8px;
+    font-size: 16px;
     cursor: pointer;
+}
+
+.button:hover {
+    opacity: 0.6;
 }
 
 .userInfo {
@@ -51,9 +56,4 @@
 .userLocation {
 }
 
-.avatar {
-    cursor: pointer;
-}
-.avatar img {
-    width: 50px;
-}
+

@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import styles from './UsersContainer.module.css'
 import {
     follow,
-    getUsers,
+    getUsers, moreGetUsers,
     setCurrentPage,
-    setSearchName,
+    setSearchName, setSowMoreCurrentPage,
     toggleFollowingProgress,
     toggleIsFetching,
     unFollow,
@@ -22,6 +22,7 @@ class UsersContainer extends React.Component {
     }
 
     componentDidMount() {
+        console.log('mount')
         this.props.getUsers(this.props.currentPage, this.props.pageSize, this.props.searchName);
     }
 
@@ -42,6 +43,12 @@ class UsersContainer extends React.Component {
         this.props.getUsers(pageNumber, this.props.pageSize, this.props.searchName);
     }
 
+    showMore = () => {
+        this.props.setSowMoreCurrentPage();
+        this.props.moreGetUsers(this.props.showMoreCurrentPage, this.props.pageSize, this.props.searchName);
+        console.log(this.props.showMoreCurrentPage)
+    }
+
     onSearchNameChange = (text) => {
         this.setState({searchString: text})
         clearTimeout(this.state.int)
@@ -49,6 +56,9 @@ class UsersContainer extends React.Component {
             this.props.setSearchName(this.state.searchString);
         }, 1500)
         this.setState({int: interval})
+    }
+    firstPreloader = () => {
+        return this.props.isFetching && this.props.currentPage + 1 === this.props.showMoreCurrentPage
     }
 
     render() {
@@ -66,13 +76,20 @@ class UsersContainer extends React.Component {
                         portionSize={this.props.portionSize}
                         currentPage={this.props.currentPage}
                         onPageChanged={this.onPageChanged}/>
-            <div className={styles.users}>{this.props.isFetching ? <Preloader/> :
-                <Users users={this.props.users}
-                       follow={this.props.follow}
-                       unFollow={this.props.unFollow}
-                       followingInProgress={this.props.followingInProgress}
-                />
-            }</div>
+            {this.firstPreloader() ? <Preloader/> :
+                <div className={styles.users}>
+                    <Users users={this.props.users}
+                           follow={this.props.follow}
+                           unFollow={this.props.unFollow}
+                           followingInProgress={this.props.followingInProgress}
+                    />
+                    {
+                        this.props.isFetching ? <button className={styles.showMore} disabled={true}>Show more</button> :
+                            <button className={styles.showMore} onClick={this.showMore}>Show more</button>
+                    }
+                </div>
+            }
+            {/*{this.props.isFetching ? <button className={styles.showMore} disabled={true}>Show more</button>: <button className={styles.showMore} onClick={this.showMore}>Show more</button>}*/}
         </div>
     }
 }
@@ -83,6 +100,7 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalCount: state.usersPage.totalCount,
         currentPage: state.usersPage.currentPage,
+        showMoreCurrentPage: state.usersPage.showMoreCurrentPage,
         isFetching: state.usersPage.isFetching,
         followingInProgress: state.usersPage.followingInProgress,
         searchName: state.usersPage.searchName,
@@ -92,10 +110,10 @@ let mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps,
-        {
-            setSearchName, follow, unFollow, setCurrentPage,
-            toggleIsFetching, toggleFollowingProgress, getUsers
-        })(UsersContainer);
+    {
+        setSearchName, follow, unFollow, setCurrentPage, setSowMoreCurrentPage,
+        toggleIsFetching, toggleFollowingProgress, getUsers, moreGetUsers
+    })(UsersContainer);
 /*export default compose(
     connect(mapStateToProps,
         {

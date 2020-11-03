@@ -1,5 +1,4 @@
 .usersContainer {
-    width: 100%;
     height: 100%;
     background-color: white;
     border: none;
@@ -9,15 +8,33 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-
 }
 
 .searchArea {
-display: inline;
+    display: inline;
 }
 
 .users {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 600px;
+}
 
+.showMore {
+    margin: 5px 0;
+    background-color: #50b5ff;
+    color: white;
+    border: 1px solid #50b5ff;
+    padding: 4px 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.showMore:hover {
+    opacity: 0.6;
 }
 
 .preloader {
