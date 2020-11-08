@@ -7,7 +7,7 @@ const SET_MORE_USERS = 'SET_MORE_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_SHOW_MORE_CURRENT_PAGE = 'SET_SHOW_MORE_CURRENT_PAGE';
 const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
-const TOGGLE_ISFETCHING = 'TOGGLE_ISFETCHING';
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
 const SET_SEARCH_NAME = 'SET_SEARCH_NAME';
 
@@ -31,7 +31,7 @@ const usersReducer = (state = initialState, action) => {
         case SET_MORE_USERS: {
             return {...state, users: [...state.users, ...action.users]}
         }
-        case TOGGLE_ISFETCHING: {
+        case TOGGLE_IS_FETCHING: {
             return {...state, isFetching: action.isFetching}
         }
         case SET_TOTAL_COUNT: {
@@ -79,7 +79,7 @@ export const setMoreUsers = (users) => ({type: SET_MORE_USERS, users})
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
 export const setSowMoreCurrentPage = () => ({type: SET_SHOW_MORE_CURRENT_PAGE})
 export const setTotalUsersCount = (totalCount) => ({type: SET_TOTAL_COUNT, totalCount})
-export const toggleIsFetching = (isFetching) => ({type: TOGGLE_ISFETCHING, isFetching})
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 export const toggleFollowingProgress = (followingInProgress, userId) => ({
     type: TOGGLE_IS_FOLLOWING_PROGRESS,
     followingInProgress,

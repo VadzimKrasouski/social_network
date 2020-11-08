@@ -3,23 +3,29 @@ import styles from './Users.module.css'
 import Avatar from '../../../common/Avatar/Avatar';
 import {NavLink} from 'react-router-dom';
 
-const Users = (props) => {
+const Users = React.memo(({users, follow, unFollow, followingInProgress}) => {
     return (
         <>
-            {props.users.map(u => <div key={u.id} className={styles.userBlock}>
+            {users.map(u => <div key={u.id} className={styles.userBlock}>
                 <span className={styles.avatar}>
                         <NavLink to={'/profile/' + u.id}>
                         <Avatar img={u.photos.small}/>
                         </NavLink>
-                    <div>{u.followed
-                        ? <button className={styles.button} disabled={props.followingInProgress.some(id => id === u.id)}
-                                  onClick={() => {
-                                      props.unFollow(u.id)
-                                  }}>Unfollow</button>
-                        : <button className={styles.button} disabled={props.followingInProgress.some(id => id === u.id)}
-                                  onClick={() => {
-                                      props.follow(u.id)
-                                  }}>Follow</button>}
+                    <div>
+                        {u.followed
+                            ? <button className={styles.button}
+                                      disabled={followingInProgress.some(id => id === u.id)}
+                                      onClick={() => {
+                                          unFollow(u.id)
+                                      }}>Unfollow
+                            </button>
+                            : <button className={styles.button}
+                                      disabled={followingInProgress.some(id => id === u.id)}
+                                      onClick={() => {
+                                          follow(u.id)
+                                      }}>Follow
+                            </button>
+                        }
                     </div>
                 </span>
                 <div className={styles.userInfo}>
@@ -37,7 +43,7 @@ const Users = (props) => {
             </div>)}
         </>
     )
-}
+})
 
 export default Users;
 

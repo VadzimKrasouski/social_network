@@ -3,7 +3,7 @@ import logo from '../../assets/img/logo192.png'
 import styles from './Header.module.css'
 import {AuthButton} from '../../common/AuthButton';
 
-const Header = (props) => {
+const Header = ((props) => {
     return (
         <header className={styles.header}>
             <div className={styles.container}>
@@ -16,8 +16,7 @@ const Header = (props) => {
             </div>
         </header>
     );
-};
-
+});
 
 export default Header;
 

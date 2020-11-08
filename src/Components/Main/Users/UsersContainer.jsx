@@ -45,7 +45,6 @@ class UsersContainer extends React.Component {
     showMore = () => {
         this.props.setSowMoreCurrentPage();
         this.props.moreGetUsers(this.props.showMoreCurrentPage, this.props.pageSize, this.props.searchName);
-        console.log(this.props.showMoreCurrentPage)
     }
 
     onSearchNameChange = (text) => {
@@ -82,9 +81,13 @@ class UsersContainer extends React.Component {
                            unFollow={this.props.unFollow}
                            followingInProgress={this.props.followingInProgress}
                     />
-                    {
-                        this.props.isFetching ? <button className={styles.showMore} disabled={true}>Show more</button> :
-                            <button className={styles.showMore} onClick={this.showMore}>Show more</button>
+                    {this.props.isFetching
+                        ? <button className={styles.showMore}
+                                  disabled={true}>Show more
+                        </button>
+                        : <button className={styles.showMore}
+                                  onClick={this.showMore}>Show more
+                        </button>
                     }
                 </div>
             }

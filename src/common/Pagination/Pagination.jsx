@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styles from './Pagination.module.css';
 
-export const Pagination = ({totalCount, pageSize, currentPage, onPageChanged, portionSize}) => {
+export const Pagination = React.memo(({totalCount, pageSize, currentPage, onPageChanged, portionSize}) => {
 
     let pagesCount = Math.ceil(totalCount / pageSize)
 
@@ -19,7 +19,7 @@ export const Pagination = ({totalCount, pageSize, currentPage, onPageChanged, po
             if (currentPage === p) {
                 return <span key={p} className={styles.active}>{p}</span>
             } else {
-                return <span key={p}  onClick={() => {
+                return <span key={p} onClick={() => {
                     onPageChanged(p)
                 }}>{p}</span>
             }
@@ -34,6 +34,6 @@ export const Pagination = ({totalCount, pageSize, currentPage, onPageChanged, po
             setPortionNumber(portionNumber + 1)
         }}>&raquo;</span>}
     </div>
-}
+});
 
 export default Pagination;
