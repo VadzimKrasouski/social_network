@@ -22,7 +22,6 @@ class UsersContainer extends React.Component {
     }
 
     componentDidMount() {
-        console.log('mount')
         this.props.getUsers(this.props.currentPage, this.props.pageSize, this.props.searchName);
     }
 

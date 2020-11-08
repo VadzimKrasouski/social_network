@@ -39,8 +39,7 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 status: action.status
             }
-        default:
-            return state;
+        default: return state;
     }
 }
 
@@ -64,9 +63,10 @@ export const getUserStatus = (userId) => (dispatch) => {
 }
 export const updateUserStatus = (status) => (dispatch) => {
     profileAPI.updateStatus(status)
-        .then(data => {
-            if (data.resultCode === 0)
+        .then(resultCode => {
+            if (resultCode === 0)
                 dispatch(setUserStatus(status));
         })
 }
+
 export default profileReducer;

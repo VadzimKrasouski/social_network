@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../../assets/img/logo192.png'
 import styles from './Header.module.css'
-import {NavLink} from "react-router-dom";
+import {AuthButton} from '../../common/AuthButton';
 
 const Header = (props) => {
     return (
@@ -9,13 +9,15 @@ const Header = (props) => {
             <div className={styles.container}>
                 <div className={styles.logo}><img src={logo} alt="img"/></div>
                 <div className={styles.loginBlock}>
-                    {props.isAuth ?
-                        <NavLink to={'/profile/' + props.id}>{props.fullName}</NavLink> :
-                        <NavLink to={'/login'}>Login</NavLink>}
+                    <AuthButton isLoggedIn={props.isAuth}
+                                authName={props.fullName}
+                                authId={props.id}/>
                 </div>
             </div>
         </header>
     );
 };
 
+
 export default Header;
+
